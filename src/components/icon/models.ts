@@ -9,7 +9,6 @@ export interface IconProps {
   name: IconNames;
   size?: IconSize;
   color?: IconColors;
-  className?: string;
   width?: number;
   height?: number;
 }

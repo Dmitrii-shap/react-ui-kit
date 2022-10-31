@@ -25,9 +25,6 @@ Border.argTypes = {
   variant: {
     table: { disable: true }
   },
-  inputClassName: {
-    table: { disable: true }
-  },
   placeholder: {
     table: { disable: true }
   }
@@ -45,9 +42,6 @@ Underline.argTypes = {
   variant: {
     table: { disable: true }
   },
-  inputClassName: {
-    table: { disable: true }
-  },
   placeholder: {
     table: { disable: true }
   }
@@ -62,9 +56,6 @@ WithoutLabel.args = {
   withShadow: false,
 };
 WithoutLabel.argTypes = {
-  inputClassName: {
-    table: { disable: true }
-  },
   label: {
     table: { disable: true }
   }

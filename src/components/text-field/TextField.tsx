@@ -16,8 +16,6 @@ export const TextField: FC<TextFieldProps> = (props) => {
     error,
     placeholder,
     message,
-    className,
-    inputClassName,
     value,
     defaultValue,
     onBlur,
@@ -29,11 +27,10 @@ export const TextField: FC<TextFieldProps> = (props) => {
   const [valueState, setValue] = React.useState<typeof value>(defaultValue || value);
 
   return (
-    <TextFieldContainer className={className}>
+    <TextFieldContainer>
       {label && <StyledTextFieldLabel shrink={focusedState || !!valueState} variant={props.variant}
                                       withShadow={props.withShadow}>{label}</StyledTextFieldLabel>}
       <StyledTextField {...props} type={type} placeholder={!label ? placeholder : ''}
-                       className={inputClassName}
                        onChange={(e) => {
                          setValue(e.currentTarget.value);
                          onChange && onChange(e);

@@ -6,6 +6,7 @@ export type ButtonColors =
     | 'primary'
     | 'primary-contrast'
     | 'secondary'
+    | 'warning'
     | 'error';
 export type ButtonSize = 'small' | 'medium' | 'large';
 
@@ -71,3 +72,7 @@ export type StyledButtonProps = Omit<
     keyof ButtonPropsWithDefaultsValue
 > &
     Required<ButtonPropsWithDefaultsValue>;
+
+export interface StyledButtonIconProps {
+    side: 'right' | 'left';
+}

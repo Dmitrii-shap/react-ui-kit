@@ -1,9 +1,9 @@
-import { AdditionalPalette, PrimaryPalette } from '../../types/theme';
+import { PaletteKeys } from '../../types/theme';
 import { CircularProgressColors } from './models';
 
 export const colorMap: Record<
     CircularProgressColors,
-    keyof (PrimaryPalette & AdditionalPalette)
+    PaletteKeys
     > = {
     primary: 'primary',
     white: 'white',

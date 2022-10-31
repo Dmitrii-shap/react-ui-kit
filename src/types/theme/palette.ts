@@ -30,6 +30,7 @@ interface GrayScale {
     700: string;
 }
 
+export type PaletteKeys = keyof (PrimaryPalette & AdditionalPalette);
 export interface Palette extends PrimaryPalette, AdditionalPalette {
     gray: GrayScale;
     text: TextPalette;

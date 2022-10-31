@@ -47,7 +47,6 @@
   ],
   "dependencies": {
     "chroma-js": "^2.4.2",
-    "classnames": "^2.3.1",
     "lodash.defaultsdeep": "^4.6.1"
   }
 }

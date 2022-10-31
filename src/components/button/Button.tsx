@@ -1,5 +1,4 @@
 import React, { FC, PropsWithChildren } from 'react';
-import { IconNames } from '../icon/models';
 import { ButtonProps } from './models';
 import { StyledButton } from './styles';
 import { StyledButtonIcon } from './styles/styled-icon';
@@ -28,9 +27,9 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
         {...rest}
     >
         <>
-            {leftIcon && <StyledButtonIcon side="left" size={iconSize} name={leftIcon as IconNames} />}
+            {leftIcon && <StyledButtonIcon side="left" size={iconSize} name={leftIcon} />}
             <span>{children}</span>
-            {rightIcon && <StyledButtonIcon side="right" size={iconSize} name={rightIcon as IconNames} />}
+            {rightIcon && <StyledButtonIcon side="right" size={iconSize} name={rightIcon} />}
         </>
     </StyledButton>
 );

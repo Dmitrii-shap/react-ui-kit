@@ -40,7 +40,4 @@ IconTable.argTypes = {
   height: {
     table: {disable: true}
   },
-  className: {
-    table: {disable: true}
-  },
 };

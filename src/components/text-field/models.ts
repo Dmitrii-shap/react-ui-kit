@@ -5,7 +5,6 @@ export type TextFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   message?: string;
   fullWidth?: boolean;
   label?: string;
-  inputClassName?: string;
   type: 'text' | 'number';
   variant: TextFieldVariant;
   withShadow?: boolean;
