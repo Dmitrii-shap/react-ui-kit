@@ -1,17 +1,17 @@
 import React, { FC, PropsWithChildren, useRef, useState } from 'react';
 import AlertContext from './Context';
-import { StyledAlertContainer } from './styles/styled-alert-container';
-import { AlertManagerProps, AlertProps } from './models';
-import { StyledAlert } from './styles/styled-alert';
+import { StyledAlert, StyledAlertContainer } from './styles';
+import { AlertManagerProps, AlertProps, AlertStyledProps } from './models';
 
-export const AlertManager: FC<PropsWithChildren<AlertManagerProps>> = ({ children, positions = ['bottom', 'right'], defaultTimer = 10000 }) => {
-    const [alerts, setAlerts] = useState<AlertProps[]>([]);
+const AlertManager: FC<PropsWithChildren<AlertManagerProps>> = ({ children, positions = ['bottom', 'right'], defaultTimer = 10000 }) => {
+    const [alerts, setAlerts] = useState<AlertStyledProps[]>([]);
 
     const add = (config: AlertProps) => {
-        setAlerts((currentAlerts) => [...currentAlerts, config]);
+        const conf: AlertStyledProps = { color: 'info', ...config };
+        setAlerts((currentAlerts) => [...currentAlerts, conf]);
 
         setTimeout(() => {
-            setAlerts((currentAlerts) => [...currentAlerts.filter((item) => item !== config)]);
+            setAlerts((currentAlerts) => [...currentAlerts.filter((item) => item !== conf)]);
         }, defaultTimer);
     };
 
@@ -24,7 +24,7 @@ export const AlertManager: FC<PropsWithChildren<AlertManagerProps>> = ({ childre
             {children}
             <StyledAlertContainer positions={positions}>
                 {alerts.map((props, index) => (
-                    <StyledAlert key={index} {...props} color={props.color || 'info'} />
+                    <StyledAlert key={index} {...props} />
                 ))}
             </StyledAlertContainer>
         </AlertContext.Provider>

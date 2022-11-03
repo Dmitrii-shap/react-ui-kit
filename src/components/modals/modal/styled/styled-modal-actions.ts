@@ -4,7 +4,6 @@ import { StyledButton } from '../../../button/styles';
 import { StyledModalActionsProps } from '../models';
 import { defaultPaddingRatio, defaultPaddingRatioXs } from '../constants/default-padding-ratio';
 
-
 const { spacing } = ThemeSelector;
 
 export const StyledModalActions = styled.div<StyledModalActionsProps>`

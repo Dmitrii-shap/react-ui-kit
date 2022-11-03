@@ -1,9 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { AlertManager } from './AlertManager';
-import { Button } from '../button/Button';
+import AlertManager from './AlertManager';
 import useAlert from './useAlert';
+
+import { Button } from '../button/Button';
 import { Typography } from '../typography/Typography';
 
 export default {

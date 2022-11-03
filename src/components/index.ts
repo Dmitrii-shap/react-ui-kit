@@ -7,3 +7,4 @@ export { Icon } from './icon/Icon';
 export { Loader } from './loader/Loader';
 export * from './alert';
 export * from './modals';
+export * from './accordion/Accordion';
