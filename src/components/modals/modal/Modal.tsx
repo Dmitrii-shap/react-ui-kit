@@ -1,35 +1,38 @@
-import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useState } from 'react';
+import React, { MouseEvent, forwardRef, useEffect, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
 import { OverflowBodyHidden } from '../../../styled/overflow-body-hidden';
 import { Icon } from '../../icon/Icon';
-import { StyledModal } from './styled/styled-moda';
+import { StyledModal } from './styled/styled-modal';
 import { StyledModalClose } from './styled/styled-modal-close';
 import { StyledModalOverlay } from './styled/styled-modal-overlay';
 import { ModalElement, ModalProps } from './models';
 import { StyledModalContent } from './styled/styled-modal-content';
 import { StyledModalWrap } from './styled/styled-modal-wrap';
+import {AnimatePresence} from 'framer-motion';
+import {useBoolean} from "../../../hooks/useBoolean";
+import {animationTransition, animationVariantsModalOverlay, animationVariantsModalContent} from './constants/animations';
 
 let bodyOverflowHiddenModalCount = 0;
 
 export const Modal = forwardRef<ModalElement, ModalProps>(
     ({
-         children,
-         size = 'md',
-         defaultOpened = false,
-         showClose = true,
-         outsideClose = false,
-         ...props
+        children,
+        size = 'md',
+        verticalPosition = 'top',
+        defaultOpened = false,
+        showClose = true,
+        outsideClose = false,
+        ...props
      }, ref) => {
-        const [isOpen, setIsOpen] = useState(defaultOpened);
-        const close = useCallback(() => setIsOpen(false), []);
-        const handleEscape = useCallback(
-            (event: KeyboardEvent) => {
-                if (event.keyCode === 27) {
-                    close();
-                }
-            },
-            [close],
-        );
+        const {
+            state: isOpen,
+            setTrue: open,
+            setFalse: close,
+        } = useBoolean(defaultOpened);
+
+        const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
+            e.target === e.currentTarget && close()
+        };
 
         useEffect(() => {
             bodyOverflowHiddenModalCount = isOpen
@@ -40,6 +43,8 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
         }, [isOpen]);
 
         useEffect(() => {
+            const handleEscape = (event: KeyboardEvent) => event.key === 'Escape' && close();
+
             if (isOpen) {
                 document.addEventListener('keydown', handleEscape, false);
             }
@@ -47,37 +52,56 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
             return () => {
                 document.removeEventListener('keydown', handleEscape, false);
             };
-        }, [handleEscape, isOpen]);
+        }, [isOpen]);
 
         useImperativeHandle(
             ref,
-            () => ({
-                open: () => setIsOpen(true),
-                close,
-            }),
-            [close],
+            () => ({ open, close }),
+            [],
         );
+
+        const portalContent = isOpen ? (
+            <StyledModal
+                className="modal"
+                variants={animationVariantsModalContent}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                transition={animationTransition}
+                index={bodyOverflowHiddenModalCount}
+            >
+                <StyledModalWrap onClick={handleBackdropClick} verticalPosition={verticalPosition}>
+                    <StyledModalContent size={size}>
+                        {showClose && (
+                            <StyledModalClose outsideClose={outsideClose} onClick={close}>
+                                <Icon name='Cross' color='inherit' />
+                            </StyledModalClose>
+                        )}
+                        {children}
+                    </StyledModalContent>
+                </StyledModalWrap>
+            </StyledModal>
+        ) : null
+
+        const overlay = (
+            <StyledModalOverlay
+                className="overlay"
+                onClick={close}
+                variants={animationVariantsModalOverlay}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                transition={animationTransition}
+            />
+        )
 
         return (
             <>
                 {!!bodyOverflowHiddenModalCount && <OverflowBodyHidden />}
+                <AnimatePresence>{isOpen && overlay}</AnimatePresence>
                 {
                     createPortal(
-                        isOpen ? (
-                            <StyledModal index={bodyOverflowHiddenModalCount}>
-                                <StyledModalOverlay />
-                                <StyledModalWrap>
-                                    <StyledModalContent size={size}>
-                                        {showClose && (
-                                            <StyledModalClose outsideClose={outsideClose} onClick={close}>
-                                                <Icon name='Cross' color='inherit' />
-                                            </StyledModalClose>
-                                        )}
-                                        {children}
-                                    </StyledModalContent>
-                                </StyledModalWrap>
-                            </StyledModal>
-                        ) : null,
+                        <AnimatePresence>{portalContent}</AnimatePresence>,
                         document.body,
                     )
                 }
