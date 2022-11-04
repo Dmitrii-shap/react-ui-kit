@@ -2,7 +2,7 @@ import React, { MouseEvent, forwardRef, useEffect, useImperativeHandle } from 'r
 import { createPortal } from 'react-dom';
 import { OverflowBodyHidden } from '../../../styled/overflow-body-hidden';
 import { Icon } from '../../icon/Icon';
-import { StyledModal } from './styled/styled-moda';
+import { StyledModal } from './styled/styled-modal';
 import { StyledModalClose } from './styled/styled-modal-close';
 import { StyledModalOverlay } from './styled/styled-modal-overlay';
 import { ModalElement, ModalProps } from './models';
@@ -96,7 +96,7 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
 
         return (
             <>
-                {!!bodyOverflowHiddenModalCount && <OverflowBodyHidden  />}
+                {!!bodyOverflowHiddenModalCount && <OverflowBodyHidden />}
                 <AnimatePresence>{isOpen && overlay}</AnimatePresence>
                 {
                     createPortal(
