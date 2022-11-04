@@ -11,6 +11,7 @@ export type ModalProps = PropsWithChildren<{
     showClose?: boolean;
     outsideClose?: boolean;
     defaultOpened?: boolean;
+    verticalPosition?: ModalVerticalPosition;
 } & ModalContentProps>;
 
 export interface ModalHeaderProps {
@@ -23,6 +24,7 @@ export interface ModalContentProps {
 
 export type StyledModalContentProps = Required<ModalContentProps>;
 
+export type ModalVerticalPosition = 'top' | 'center'
 export type ModalActionsAlign = 'center' | 'left' | 'right' | 'space-between';
 export interface ModalActionsProps {
     align?: ModalActionsAlign;
@@ -30,7 +32,7 @@ export interface ModalActionsProps {
 
 export type StyledModalActionsProps = Required<ModalActionsProps>;
 
-export interface StyledModalProps {
+export interface StyledModalProps extends Pick<ModalProps, 'verticalPosition'>{
     index: number;
 }
 

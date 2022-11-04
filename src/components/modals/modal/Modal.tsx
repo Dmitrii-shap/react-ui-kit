@@ -16,12 +16,13 @@ let bodyOverflowHiddenModalCount = 0;
 
 export const Modal = forwardRef<ModalElement, ModalProps>(
     ({
-         children,
-         size = 'md',
-         defaultOpened = false,
-         showClose = true,
-         outsideClose = false,
-         ...props
+        children,
+        size = 'md',
+        verticalPosition = 'top',
+        defaultOpened = false,
+        showClose = true,
+        outsideClose = false,
+        ...props
      }, ref) => {
         const {
             state: isOpen,
@@ -69,7 +70,7 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
                 transition={animationTransition}
                 index={bodyOverflowHiddenModalCount}
             >
-                <StyledModalWrap onClick={handleBackdropClick}>
+                <StyledModalWrap onClick={handleBackdropClick} verticalPosition={verticalPosition}>
                     <StyledModalContent size={size}>
                         {showClose && (
                             <StyledModalClose outsideClose={outsideClose} onClick={close}>

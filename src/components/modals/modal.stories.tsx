@@ -23,6 +23,7 @@ MainModal.args = {
     size: 'md',
     outsideClose: false,
     showClose: true,
+    verticalPosition: 'top',
     defaultOpened: false,
     title: 'Header title',
     align: 'center',
@@ -42,6 +43,7 @@ ScrolledModal.args = {
     size: 'md',
     outsideClose: false,
     showClose: true,
+    verticalPosition: 'top',
     defaultOpened: false,
     title: 'Header title',
     align: 'center',
@@ -76,14 +78,14 @@ ScrolledModal.argTypes = {
 };
 
 const OverrideModal: FC<OverrideModalType> = (props) => {
-    const { size, outsideClose, showClose, title, align, content } = props;
+    const { size, outsideClose, showClose, title, align, content, verticalPosition } = props;
     const modalRef = useRef<ModalElement>(null);
 
     return (
         <div>
             <Button onClick={() => modalRef.current?.open()}>Open base modal</Button>
 
-            <Modal ref={modalRef} size={size} outsideClose={outsideClose} showClose={showClose}>
+            <Modal ref={modalRef} size={size} outsideClose={outsideClose} showClose={showClose} verticalPosition={verticalPosition}>
                 <ModalHeader title={title} />
                 <ModalBody>
                     {content.split(/\n/).map(paragraph => (<p>{paragraph}</p>))}
