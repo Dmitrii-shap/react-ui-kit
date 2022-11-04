@@ -1,5 +1,16 @@
 # Components UI-Kit
 
+### TODO LIST
+    - checkbox
+    - radio 
+    - switch
+    - table
+    - tooltip
+    - select 
+    - 
+    - add TSLint
+    - add Tests
+
 ## Типизирование темы
 
 Документация по темизации [styled-components](https://styled-components.com/docs/api#typescript)

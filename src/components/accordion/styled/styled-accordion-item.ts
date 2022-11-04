@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { AccordionItemStyledProps } from '../models';
-import { AccordionItemHeaderIconStyled } from './accordion-item-header-icon-styled';
+import { StyledAccordionItemHeaderIcon } from './styled-accordion-item-header-icon';
 
-export const AccordionItemStyled = styled.div<AccordionItemStyledProps>`
-  ${AccordionItemHeaderIconStyled} {
+export const StyledAccordionItem = styled.div<AccordionItemStyledProps>`
+  ${StyledAccordionItemHeaderIcon} {
     ${({isOpen}) => isOpen && 'transform: rotate(180deg)'};
   }
   
