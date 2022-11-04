@@ -85,7 +85,7 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
 
         const overlay = (
             <StyledModalOverlay
-                className={'overlay'}
+                className="overlay"
                 onClick={close}
                 variants={animationVariantsModalOverlay}
                 initial="hidden"
