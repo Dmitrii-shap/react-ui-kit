@@ -1,16 +1,8 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { StyledModalProps } from '../models';
+import {motion} from 'framer-motion';
 
-const modalFadeIn = keyframes`
-  0% {
-    animation-timing-function: cubic-bezier(0.2242, 0.7499, 0.3142, 0.8148);
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-`;
-
-export const StyledModal = styled.div<StyledModalProps>`
+export const StyledModal = styled(motion.div)<StyledModalProps>`
   position: fixed;
   overflow: hidden;
   top: 0;
@@ -22,10 +14,6 @@ export const StyledModal = styled.div<StyledModalProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: ${({ index }) => 1000 + index};
+  z-index: ${({ index }) => index};
   box-sizing: border-box;
-
-  animation: ${modalFadeIn} 0.3s 1 linear;
-  animation-fill-mode: forwards;
-  opacity: 0;
 `;
