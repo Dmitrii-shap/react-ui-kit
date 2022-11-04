@@ -12,11 +12,8 @@ export const StyledModalClose = styled(Button)<StyledModalCloseProps>`
   padding: 0;
 
   ${({ outsideClose }) => outsideClose ? outsideCss : defaultPositionCss}
-  
+
   transition: .5s;
-  &:hover {
-    transform: rotate(90deg);
-  }
 `;
 
 const outsideCss = css`
