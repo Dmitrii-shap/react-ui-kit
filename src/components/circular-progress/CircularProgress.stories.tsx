@@ -24,9 +24,3 @@ Dynamic.args = {
     size: 'large'
 };
 
-export const StaticError = Template.bind({});
-StaticError.args = {
-    color: 'error',
-    size: 'large'
-};
-

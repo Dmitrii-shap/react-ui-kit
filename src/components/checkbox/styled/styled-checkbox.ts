@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { StyledCheckboxProps } from '../models';
+import { StyledCheckboxInput } from './styled-checkbox-input';
 
 export const StyledCheckbox = styled.div<StyledCheckboxProps>`
   width: 20px;
@@ -9,21 +10,21 @@ export const StyledCheckbox = styled.div<StyledCheckboxProps>`
   border-radius: 3px;
   display: inline-block;
   position: relative;
-  
-  input:hover ~ & {
+
+  ${StyledCheckboxInput}:hover ~ & {
     background-color: ${({ theme }) => theme.palette.gray['700']};
   }
 
-  input:disabled ~ & {
+  ${StyledCheckboxInput}:disabled ~ & {
     background-color: ${({ theme }) => theme.palette.gray['700']};
     border-color: ${({ theme }) => theme.palette.gray['600']};
   }
 
-  input:checked:disabled ~ & {
+  ${StyledCheckboxInput}:checked:disabled ~ & {
     opacity: 0.6;
   }
 
-  input:checked ~ & {
+  ${StyledCheckboxInput}:checked ~ & {
     &:after {
       position: absolute;
       content: '';
@@ -37,16 +38,16 @@ export const StyledCheckbox = styled.div<StyledCheckboxProps>`
     }
   }
     
-  ${({ error }) => error ? errorCheckbox : primaryCheckbox}
+  ${({ isError }) => isError ? errorCheckbox : primaryCheckbox}
 `;
 
 const primaryCheckbox = css`
-  input:checked:enabled:hover ~ & {
+  ${StyledCheckboxInput}:checked:enabled:hover ~ & {
     background-color: ${({ theme }) => theme.palette.primaryLight};
     border-color: ${({ theme }) => theme.palette.primaryLight};
   }
 
-  input:checked ~ & {
+  ${StyledCheckboxInput}:checked ~ & {
     background-color: ${({ theme }) => theme.palette.primary};
     border-color: ${({ theme }) => theme.palette.primary};
   }
@@ -55,12 +56,12 @@ const primaryCheckbox = css`
 const errorCheckbox = css`
   border-color: ${({ theme }) => theme.palette.error};
 
-  input:checked:enabled:hover ~ & {
+  ${StyledCheckboxInput}:checked:enabled:hover ~ & {
     background-color: ${({ theme }) => theme.palette.errorDark};
     border-color: ${({ theme }) => theme.palette.errorDark};
   }
 
-  input:checked ~ & {
+  ${StyledCheckboxInput}:checked ~ & {
     background-color: ${({ theme }) => theme.palette.error};
     border-color: ${({ theme }) => theme.palette.error};
   }

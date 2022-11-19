@@ -9,14 +9,14 @@ import {
 } from './styled';
 
 const Checkbox: FC<CheckboxProps> = (props) => {
-    const { label, error } = props;
+    const { label, isError } = props;
     const id = props.id || useId();
 
     return (
         <StyledCheckboxLabel htmlFor={id}>
             <StyledCheckboxContainer>
                 <StyledCheckboxInput {...props} id={id} type='checkbox' />
-                <StyledCheckbox error={error} />
+                <StyledCheckbox isError={isError} />
                 {label && <StyledCheckboxTitle>{label}</StyledCheckboxTitle>}
             </StyledCheckboxContainer>
         </StyledCheckboxLabel>

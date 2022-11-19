@@ -5,5 +5,5 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement>, St
 }
 
 export interface StyledCheckboxProps {
-    error?: boolean;
+    isError?: boolean;
 }
