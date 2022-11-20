@@ -1,18 +1,14 @@
-import styled, { keyframes } from 'styled-components';
-import { AlertStyledProps, AlertTypes } from '../models';
+import styled  from 'styled-components';
+import { StyledAlertProps, AlertTypes } from '../models';
 import { PaletteKeys } from '../../../types/theme';
+import { ThemeSelector } from '../../../theme';
+import { motion } from 'framer-motion';
 
-const showAlert = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
+const { spacing } = ThemeSelector;
 
-export const StyledAlert = styled.div<AlertStyledProps>`
-  padding: 16px;
+export const StyledAlert = styled(motion.div)<StyledAlertProps>`
+  position: relative;
+  padding: ${spacing(4)}px ${spacing(8)}px;
   background: ${({ theme, color }) => theme.palette[colorBgMap[color]]};
   color: ${({ theme, color }) => theme.palette[colorMap[color]]};
   box-shadow: 0 4px 20px rgba(92, 133, 150, 0.24);
@@ -22,9 +18,7 @@ export const StyledAlert = styled.div<AlertStyledProps>`
   font-size: 12px;
   font-weight: 300;
   line-height: 16px;
-  opacity: 1;
-  animation: ${showAlert} 300ms ease-in;
-
+  
   & + & {
     margin-top: 12px;
   }

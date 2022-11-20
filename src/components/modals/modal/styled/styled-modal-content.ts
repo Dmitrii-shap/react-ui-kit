@@ -7,8 +7,7 @@ export const StyledModalContent = styled.div<StyledModalContentProps>`
   position: relative;
   background-color: ${({theme}) => theme.palette.white};
   max-width: ${({size}) => getModalSize(size)}px;
-  max-height: 95%;
-  overflow: hidden;
+  max-height: calc(100% - 40px);
   box-shadow: ${({theme}) => theme.shadow.gray.main};
   display: flex;
   flex-direction: column;

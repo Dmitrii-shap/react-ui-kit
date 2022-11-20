@@ -88,7 +88,7 @@ const OverrideModal: FC<OverrideModalType> = (props) => {
             <Modal ref={modalRef} size={size} outsideClose={outsideClose} showClose={showClose} verticalPosition={verticalPosition}>
                 <ModalHeader title={title} />
                 <ModalBody>
-                    {content.split(/\n/).map(paragraph => (<p>{paragraph}</p>))}
+                    {content.split(/\n/).map((paragraph, index) => (<p key={index}>{paragraph}</p>))}
                 </ModalBody>
                 <ModalActions align={align}>
                     <Button onClick={() => modalRef.current?.close()} variant='outlined'> Close </Button>

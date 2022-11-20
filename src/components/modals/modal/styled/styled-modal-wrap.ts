@@ -3,7 +3,7 @@ import {ModalVerticalPosition} from "../models";
 
 const verticalPositionTop = css`
   align-items: flex-start;
-  margin-top: 2.5%;
+  margin-top: 40px;
 `;
 
 const verticalPositionCenter = css`

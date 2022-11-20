@@ -1,10 +1,13 @@
-import { ReactNode} from 'react';
+import { ReactNode } from 'react';
 
-type ManagerAlign = ['top' | 'bottom', 'left' | 'right'];
+type VerticalPosition = 'top' | 'bottom';
+type HorizontalPosition = 'left' | 'right';
+type ManagerAlign = [VerticalPosition, HorizontalPosition];
 
 export interface AlertManagerProps {
-    defaultTimer?: number;
     positions?: ManagerAlign;
+    defaultShowClose?: boolean
+    defaultTimer?: number;
 }
 
 export type StyledAlertManagerProps = {
@@ -12,8 +15,26 @@ export type StyledAlertManagerProps = {
 };
 
 export type AlertTypes = 'info' | 'error' | 'warning' | 'success';
-export interface AlertProps {
+
+export interface AlertConfig {
     children: ReactNode;
     color?: AlertTypes;
+    showClose?: boolean;
+    timer?: number;
+    id?: string;
+    onClose?: () => void;
 }
-export type AlertStyledProps = Required<AlertProps>;
+
+export type AlertFullConfig = Optional<Required<AlertConfig>, 'onClose'>
+
+export type AlertProps = Required<Omit<AlertConfig, 'timer'>> & {
+    align: HorizontalPosition;
+}
+
+export interface StyledAlertProps {
+    color: AlertTypes;
+}
+
+export interface StyledAlertCloseProps {
+    color: AlertTypes;
+}

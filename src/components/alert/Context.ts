@@ -1,8 +1,9 @@
 import { Context, createContext, MutableRefObject } from 'react';
-import { AlertProps } from './models';
+import { AlertConfig } from './models';
 
 type AlertState = MutableRefObject<{
-    add: (config: AlertProps) => void;
+    add: (config: AlertConfig) => void;
+    close: (id: string) => void;
 }>;
 
 // @ts-ignore  TODO
