@@ -1,6 +1,6 @@
-export { AccordionItemStyled } from './accordion-item-styled';
-export { AccordionItemHeaderStyled } from './accordion-item-header-styled';
-export { AccordionItemTitleStyled } from './accordion-item-title-styled';
-export { AccordionItemBodyStyled } from './accordion-item-body-styled';
-export { AccordionItemBodyContentStyled } from './accordion-item-body-content-styled';
-export { AccordionItemHeaderIconStyled } from './accordion-item-header-icon-styled';
+export { StyledAccordionItem } from './styled-accordion-item';
+export { StyledAccordionItemHeader } from './styled-accordion-item-header';
+export { StyledAccordionItemTitle } from './styled-accordion-item-title';
+export { StyledAccordionItemBody } from './styled-accordion-item-body';
+export { StyledAccordionItemBodyContent } from './styled-accordion-item-body-content';
+export { StyledAccordionItemHeaderIcon } from './styled-accordion-item-header-icon';

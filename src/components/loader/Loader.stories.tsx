@@ -9,22 +9,8 @@ export default {
 
 const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />;
 
-export const Static = Template.bind({});
-Static.args = {
+export const Example  = Template.bind({});
+Example.args = {
     size: 'medium',
     variant: 'static',
-};
-
-export const Fixed = Template.bind({});
-Fixed.args = {
-    size: 'large',
-    variant: 'fixed',
-};
-
-export const WithDimensions = Template.bind({});
-WithDimensions.args = {
-    size: 'large',
-    variant: 'static',
-    width: 300,
-    height: 300,
 };

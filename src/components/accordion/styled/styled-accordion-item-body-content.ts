@@ -3,6 +3,6 @@ import { ThemeSelector } from '../../../theme';
 
 const { spacing } = ThemeSelector;
 
-export const AccordionItemBodyContentStyled = styled.div`
+export const StyledAccordionItemBodyContent = styled.div`
   padding: ${spacing(4)}px ${spacing(6)}px;
 `

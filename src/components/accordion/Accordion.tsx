@@ -1,34 +1,34 @@
 import React, { FC, useRef, useState } from 'react';
 import { AccordionItemProps, AccordionProps } from './models';
 import {
-    AccordionItemStyled,
-    AccordionItemHeaderStyled,
-    AccordionItemTitleStyled,
-    AccordionItemBodyStyled,
-    AccordionItemBodyContentStyled,
-    AccordionItemHeaderIconStyled,
+    StyledAccordionItem,
+    StyledAccordionItemHeader,
+    StyledAccordionItemTitle,
+    StyledAccordionItemBody,
+    StyledAccordionItemBodyContent,
+    StyledAccordionItemHeaderIcon,
 } from './styled';
 
-const Accordion: FC<AccordionItemProps> = ({ title, children, isOpen, onToggle, isOdd }) => {
+const AccordionItem: FC<AccordionItemProps> = ({ title, children, isOpen, onToggle, isOdd }) => {
     const contentRef = useRef<HTMLDivElement>(null);
 
     return (
-        <AccordionItemStyled isOpen={isOpen} isOdd={isOdd}>
-            <AccordionItemHeaderStyled onClick={onToggle}>
-                <AccordionItemTitleStyled>{title}</AccordionItemTitleStyled>
-                <AccordionItemHeaderIconStyled fill="black" height={12} width={12} />
-            </AccordionItemHeaderStyled>
+        <StyledAccordionItem isOpen={isOpen} isOdd={isOdd}>
+            <StyledAccordionItemHeader onClick={onToggle}>
+                <StyledAccordionItemTitle>{title}</StyledAccordionItemTitle>
+                <StyledAccordionItemHeaderIcon fill="black" height={12} width={12} />
+            </StyledAccordionItemHeader>
 
-            <AccordionItemBodyStyled style={{ maxHeight: !isOpen ? 0 : contentRef.current?.offsetHeight }}>
-                <AccordionItemBodyContentStyled ref={contentRef}>
+            <StyledAccordionItemBody style={{ maxHeight: !isOpen ? 0 : contentRef.current?.offsetHeight }}>
+                <StyledAccordionItemBodyContent ref={contentRef}>
                     {children}
-                </AccordionItemBodyContentStyled>
-            </AccordionItemBodyStyled>
-        </AccordionItemStyled>
+                </StyledAccordionItemBodyContent>
+            </StyledAccordionItemBody>
+        </StyledAccordionItem>
     );
 };
 
-const Accordions: FC<AccordionProps> = ({ items, multiple }) => {
+const Accordion: FC<AccordionProps> = ({ items, multiple }) => {
     const [activeItems, setActiveItems] = useState<number[]>([]);
 
     const toggleElement = (num: number) => {
@@ -45,7 +45,7 @@ const Accordions: FC<AccordionProps> = ({ items, multiple }) => {
     return (
         <div>
             {items.map((item, index) => (
-                <Accordion
+                <AccordionItem
                     key={index}
                     {...item}
                     isOdd={!(index % 2)}
@@ -57,4 +57,4 @@ const Accordions: FC<AccordionProps> = ({ items, multiple }) => {
     );
 };
 
-export default Accordions;
+export default Accordion;

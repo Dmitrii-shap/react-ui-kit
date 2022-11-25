@@ -9,8 +9,8 @@ export default {
 
 const Template: ComponentStory<typeof Accordion> = (args) => <Accordion {...args} />;
 
-export const Alert = Template.bind({});
-Alert.args = {
+export const AccordionStory = Template.bind({});
+AccordionStory.args = {
     multiple: false,
     items: new Array(5).fill(1).map((_, index) => ({ title: `title${index}`, children: `content${index}` })),
 };

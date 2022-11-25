@@ -1,2 +1,2 @@
 export * from './create-theme';
-export * from './slector-theme';
+export * from './selector-theme';
