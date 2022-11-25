@@ -1,31 +1,76 @@
-import React, { FC, PropsWithChildren, useRef, useState } from 'react';
+import React, { FC, PropsWithChildren, useRef, useState, useCallback, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import AlertContext from './Context';
-import { StyledAlert, StyledAlertContainer } from './styles';
-import { AlertManagerProps, AlertProps, AlertStyledProps } from './models';
+import { StyledAlertContainer } from './styles';
+import { AlertManagerProps, AlertConfig, AlertFullConfig } from './models';
+import { generateId } from '../../utils';
+import Alert from './Alert';
 
-const AlertManager: FC<PropsWithChildren<AlertManagerProps>> = ({ children, positions = ['bottom', 'right'], defaultTimer = 10000 }) => {
-    const [alerts, setAlerts] = useState<AlertStyledProps[]>([]);
+const AlertManager: FC<PropsWithChildren<AlertManagerProps>> = (props) => {
+    const { children, positions = ['bottom', 'right'], defaultShowClose = true, defaultTimer = 10000 } = props;
+    const timerIdsRef = useRef([] as NodeJS.Timeout[]);
+    const [alerts, setAlerts] = useState<AlertFullConfig[]>([]);
 
-    const add = (config: AlertProps) => {
-        const conf: AlertStyledProps = { color: 'info', ...config };
-        setAlerts((currentAlerts) => [...currentAlerts, conf]);
+    useEffect(() => {
+        return () => {
+            timerIdsRef.current.forEach(clearTimeout);
+        };
+    }, []);
 
-        setTimeout(() => {
-            setAlerts((currentAlerts) => [...currentAlerts.filter((item) => item !== conf)]);
-        }, defaultTimer);
-    };
+    const add = useCallback((config: AlertConfig) => {
+        const alertConfig: AlertFullConfig = {
+            color: 'info',
+            timer: defaultTimer,
+            id: generateId(),
+            showClose: defaultShowClose,
+            ...config,
+        };
+
+        setAlerts((currentAlerts) => [...currentAlerts, alertConfig]);
+
+        const timeoutId = setTimeout(() => {
+            close(alertConfig.id);
+        }, alertConfig.timer);
+
+        timerIdsRef.current.push(timeoutId);
+    }, [defaultTimer]);
+
+    const close = useCallback((id: string) => {
+        setAlerts((currentAlerts) => {
+            const index = currentAlerts.findIndex(item => item.id === id);
+            if (index === -1) {
+                return currentAlerts;
+            }
+
+            const timerIds = timerIdsRef.current;
+            clearTimeout(timerIds[index]);
+            timerIds.splice(index, 1);
+
+            const callbackFn = currentAlerts[index].onClose;
+            callbackFn && callbackFn();
+
+            return currentAlerts.filter((item) => item.id !== id);
+        });
+    }, []);
 
     const alertContext = useRef({
         add,
+        close,
     });
 
     return (
         <AlertContext.Provider value={alertContext}>
             {children}
             <StyledAlertContainer positions={positions}>
-                {alerts.map((props, index) => (
-                    <StyledAlert key={index} {...props} />
-                ))}
+                <AnimatePresence>
+                    {alerts.map((props) => (
+                        <Alert key={props.id}
+                               align={positions[1]}
+                               {...props}
+                               onClose={() => close(props.id)}
+                        />
+                    ))}
+                </AnimatePresence>
             </StyledAlertContainer>
         </AlertContext.Provider>
     );

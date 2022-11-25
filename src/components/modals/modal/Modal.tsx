@@ -62,7 +62,6 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
 
         const portalContent = isOpen ? (
             <StyledModal
-                className="modal"
                 variants={animationVariantsModalContent}
                 initial="hidden"
                 animate="visible"
@@ -85,7 +84,6 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
 
         const overlay = (
             <StyledModalOverlay
-                className="overlay"
                 onClick={close}
                 variants={animationVariantsModalOverlay}
                 initial="hidden"
