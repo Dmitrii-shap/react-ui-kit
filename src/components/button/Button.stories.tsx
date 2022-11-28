@@ -6,25 +6,25 @@ import { Button } from './Button';
 export default {
     title: 'Components/Button',
     component: Button,
-    parameters: {controls: {sort: 'requiredFirst'}},
-    controls: {hideNoControlsWarning: true},
+    parameters: { controls: { sort: 'requiredFirst' } },
+    controls: { hideNoControlsWarning: true },
     argTypes: {
         variant: {
-            table: {disable: true}
+            table: { disable: true },
         },
         as: {
-            table: {disable: true}
+            table: { disable: true },
         },
         href: {
-            table: {disable: true}
+            table: { disable: true },
         },
         target: {
-            table: {disable: true}
+            table: { disable: true },
         },
         to: {
-            table: {disable: true}
-        }
-    }
+            table: { disable: true },
+        },
+    },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;

@@ -6,7 +6,7 @@ type ManagerAlign = [VerticalPosition, HorizontalPosition];
 
 export interface AlertManagerProps {
     positions?: ManagerAlign;
-    defaultShowClose?: boolean
+    defaultShowClose?: boolean;
     defaultTimer?: number;
 }
 
@@ -25,11 +25,11 @@ export interface AlertConfig {
     onClose?: () => void;
 }
 
-export type AlertFullConfig = Optional<Required<AlertConfig>, 'onClose'>
+export type AlertFullConfig = Optional<Required<AlertConfig>, 'onClose'>;
 
 export type AlertProps = Required<Omit<AlertConfig, 'timer'>> & {
     align: HorizontalPosition;
-}
+};
 
 export interface StyledAlertProps {
     color: AlertTypes;

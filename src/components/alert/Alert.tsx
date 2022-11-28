@@ -12,13 +12,13 @@ const Alert: FC<AlertProps> = ({ children, align, onClose, showClose, ...props }
             {...props}
             variants={align === 'right' ? animationRightAlert : animationLeftAlert}
             transition={animationTransition}
-            initial='initial'
-            animate='animate'
-            exit='initial'
+            initial="initial"
+            animate="animate"
+            exit="initial"
         >
             {showClose && (
                 <StyledAlertClose color={color} onClick={onClose}>
-                    <Icon name='Cross' color='inherit' />
+                    <Icon name="Cross" color="inherit" />
                 </StyledAlertClose>
             )}
             {children}

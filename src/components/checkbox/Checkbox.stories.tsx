@@ -16,4 +16,4 @@ CheckboxStory.args = {
     label: 'Label text',
     isError: false,
     disabled: false,
-}
+};

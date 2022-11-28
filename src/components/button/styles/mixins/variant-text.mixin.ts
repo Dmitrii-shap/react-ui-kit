@@ -11,9 +11,7 @@ export const variantTextMixin = css<StyledButtonProps>`
     box-shadow: none;
 
     &:hover {
-        color: ${({ theme, color }) =>
-            chroma(theme.palette[colorMap[color]]).darken().hex()};
-        fill: ${({ theme, color }) =>
-              chroma(theme.palette[colorMap[color]]).darken().hex()};
+        color: ${({ theme, color }) => chroma(theme.palette[colorMap[color]]).darken().hex()};
+        fill: ${({ theme, color }) => chroma(theme.palette[colorMap[color]]).darken().hex()};
     }
 `;

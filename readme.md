@@ -1,15 +1,17 @@
 # Components UI-Kit
 
 ### TODO LIST
-    - checkbox
-    - radio 
-    - switch
-    - table
-    - tooltip
-    - select 
-    - 
-    - add TSLint
-    - add Tests
+   - ~~checkbox~~
+   - radio
+   - switch
+   - table
+   - tooltip
+   - select
+   ---
+   - ~~add ESLint~~
+   - add Tests
+   - add readme description
+   - website with storybook
 
 ## Типизирование темы
 
@@ -27,7 +29,7 @@ interface Theme {
 
 ```typescript
 import 'styled-components';
-import { Theme } from 'uikit'
+import { Theme } from 'uikit';
 
 declare module 'styled-components' {
     export interface DefaultTheme extends Theme {}
@@ -35,8 +37,9 @@ declare module 'styled-components' {
 ```
 
 ### Кастомизация темы:
+
 ```typescript
-import { Theme, Palette } from 'uikit'
+import { Theme, Palette } from 'uikit';
 import 'styled-components';
 
 interface CustomPalette extends Palette {
@@ -58,27 +61,27 @@ declare module 'styled-components' {
 
 ```typescript jsx
 import React, { FC, ReactNode, useMemo } from 'react';
-import { ThemeProvider, createTheme } from 'uikit'
+import { ThemeProvider, createTheme } from 'uikit';
 
 interface Props {
-    children: ReactNode
+    children: ReactNode;
 }
 
 const AppThemeProvider: FC<Props> = ({ children }) => {
-    const theme = useMemo(() => createTheme({
-        palette: {
-            primary: 'red',
-            secondary: 'blue',
-            customColor: 'gray',
-        }
-    }), []);
-
-    return (
-        <ThemeProvider theme={theme}>
-            You can use styled components with theme
-        </ThemeProvider>
+    const theme = useMemo(
+        () =>
+            createTheme({
+                palette: {
+                    primary: 'red',
+                    secondary: 'blue',
+                    customColor: 'gray',
+                },
+            }),
+        []
     );
-}
+
+    return <ThemeProvider theme={theme}>You can use styled components with theme</ThemeProvider>;
+};
 
 export default AppThemeProvider;
 ```

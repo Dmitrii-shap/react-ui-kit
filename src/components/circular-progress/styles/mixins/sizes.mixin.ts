@@ -13,5 +13,3 @@ const baseSizeMixin = (divider: number) => css`
 export const sizeSmallMixin = baseSizeMixin(2);
 export const sizeMediumMixin = baseSizeMixin(1);
 export const sizeLargeMixin = baseSizeMixin(0.5);
-
-

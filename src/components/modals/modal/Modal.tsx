@@ -8,38 +8,41 @@ import { StyledModalOverlay } from './styled/styled-modal-overlay';
 import { ModalElement, ModalProps } from './models';
 import { StyledModalContent } from './styled/styled-modal-content';
 import { StyledModalWrap } from './styled/styled-modal-wrap';
-import {AnimatePresence} from 'framer-motion';
-import {useBoolean} from "../../../hooks/useBoolean";
-import {animationTransition, animationVariantsModalOverlay, animationVariantsModalContent} from './constants/animations';
+import { AnimatePresence } from 'framer-motion';
+import { useBoolean } from '../../../hooks/useBoolean';
+import {
+    animationTransition,
+    animationVariantsModalOverlay,
+    animationVariantsModalContent,
+} from './constants/animations';
 
 let bodyOverflowHiddenModalCount = 0;
 
 export const Modal = forwardRef<ModalElement, ModalProps>(
-    ({
-        children,
-        size = 'md',
-        verticalPosition = 'top',
-        defaultOpened = false,
-        showClose = true,
-        outsideClose = false,
-        ...props
-     }, ref) => {
-        const {
-            state: isOpen,
-            setTrue: open,
-            setFalse: close,
-        } = useBoolean(defaultOpened);
+    (
+        {
+            children,
+            size = 'md',
+            verticalPosition = 'top',
+            defaultOpened = false,
+            showClose = true,
+            outsideClose = false,
+            ...props
+        },
+        ref
+    ) => {
+        const { state: isOpen, setTrue: open, setFalse: close } = useBoolean(defaultOpened);
 
         const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
-            e.target === e.currentTarget && close()
+            e.target === e.currentTarget && close();
         };
 
         useEffect(() => {
             bodyOverflowHiddenModalCount = isOpen
                 ? bodyOverflowHiddenModalCount + 1
                 : bodyOverflowHiddenModalCount === 0
-                    ? 0
-                    : bodyOverflowHiddenModalCount - 1;
+                ? 0
+                : bodyOverflowHiddenModalCount - 1;
         }, [isOpen]);
 
         useEffect(() => {
@@ -54,11 +57,7 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
             };
         }, [isOpen]);
 
-        useImperativeHandle(
-            ref,
-            () => ({ open, close }),
-            [],
-        );
+        useImperativeHandle(ref, () => ({ open, close }), []);
 
         const portalContent = isOpen ? (
             <StyledModal
@@ -73,14 +72,14 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
                     <StyledModalContent size={size}>
                         {showClose && (
                             <StyledModalClose outsideClose={outsideClose} onClick={close}>
-                                <Icon name='Cross' color='inherit' />
+                                <Icon name="Cross" color="inherit" />
                             </StyledModalClose>
                         )}
                         {children}
                     </StyledModalContent>
                 </StyledModalWrap>
             </StyledModal>
-        ) : null
+        ) : null;
 
         const overlay = (
             <StyledModalOverlay
@@ -91,21 +90,16 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
                 exit="hidden"
                 transition={animationTransition}
             />
-        )
+        );
 
         return (
             <>
                 {!!bodyOverflowHiddenModalCount && <OverflowBodyHidden />}
                 <AnimatePresence>{isOpen && overlay}</AnimatePresence>
-                {
-                    createPortal(
-                        <AnimatePresence>{portalContent}</AnimatePresence>,
-                        document.body,
-                    )
-                }
+                {createPortal(<AnimatePresence>{portalContent}</AnimatePresence>, document.body)}
             </>
         );
-    },
+    }
 );
 
 export default Modal;

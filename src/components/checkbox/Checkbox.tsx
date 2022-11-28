@@ -15,7 +15,7 @@ const Checkbox: FC<CheckboxProps> = (props) => {
     return (
         <StyledCheckboxLabel htmlFor={id}>
             <StyledCheckboxContainer>
-                <StyledCheckboxInput {...props} id={id} type='checkbox' />
+                <StyledCheckboxInput {...props} id={id} type="checkbox" />
                 <StyledCheckbox isError={isError} />
                 {label && <StyledCheckboxTitle>{label}</StyledCheckboxTitle>}
             </StyledCheckboxContainer>

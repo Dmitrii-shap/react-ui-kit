@@ -9,11 +9,11 @@ export const Icon: FC<IconProps> = ({ name, color = 'inherit', size, ...props })
     return (
         <StyledIcon color={color}>
             <TagName
-                width={size ? size * 10 : "100%"}
-                height={size ? size * 10 : "100%"}
+                width={size ? size * 10 : '100%'}
+                height={size ? size * 10 : '100%'}
                 {...props}
                 fill="inherit"
-                role='img'
+                role="img"
             />
         </StyledIcon>
     );
