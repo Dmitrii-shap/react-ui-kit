@@ -4,16 +4,16 @@ import { sizeLargeMixin, sizeMediumMixin, sizeSmallMixin } from './mixins/sizes.
 import { borderWidthLargeMixin, borderWidthMediumMixin, borderWidthSmallMixin } from './mixins/border-width.mixin';
 
 export const StyledCircularProgressBorder = styled.div<StyledCircularProgressProps>`
-  border-radius: 50%;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
+    border-radius: 50%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
 
-  ${({ size }) => getSizeMixin(size)}
-  ${({ size }) => getBorderWidth(size)}
+    ${({ size }) => getSizeMixin(size)}
+    ${({ size }) => getBorderWidth(size)}
 `;
 
 const getSizeMixin = (size: CircularProgressSize) => {
@@ -25,7 +25,7 @@ const getSizeMixin = (size: CircularProgressSize) => {
         case 'large':
             return sizeLargeMixin;
     }
-}
+};
 
 const getBorderWidth = (size: CircularProgressSize) => {
     switch (size) {
@@ -36,4 +36,4 @@ const getBorderWidth = (size: CircularProgressSize) => {
         case 'large':
             return borderWidthLargeMixin;
     }
-}
+};

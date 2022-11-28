@@ -6,8 +6,8 @@ export const animationLeftAlert = {
     animate: {
         opacity: 1,
         left: 0,
-    }
-}
+    },
+};
 
 export const animationRightAlert = {
     initial: {
@@ -17,10 +17,10 @@ export const animationRightAlert = {
     animate: {
         opacity: 1,
         right: 0,
-    }
-}
+    },
+};
 
 export const animationTransition = {
     duration: 0.5,
-    ease: "easeInOut",
+    ease: 'easeInOut',
 };

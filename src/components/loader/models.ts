@@ -12,14 +12,6 @@ export interface LoaderProps {
     height?: number;
 }
 
-type LoaderWithDefaultsValue = Pick<
-    LoaderProps,
-    'variant'
->;
+type LoaderWithDefaultsValue = Pick<LoaderProps, 'variant'>;
 
-export type StyledLoaderProps = Omit<
-    LoaderProps,
-    keyof LoaderWithDefaultsValue
-    > &
-    Required<LoaderWithDefaultsValue>;
-
+export type StyledLoaderProps = Omit<LoaderProps, keyof LoaderWithDefaultsValue> & Required<LoaderWithDefaultsValue>;

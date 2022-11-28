@@ -2,12 +2,7 @@ import { ButtonHTMLAttributes, ComponentType, HTMLAttributeAnchorTarget } from '
 import { IconNames, IconSize } from '../icon/models';
 
 export type ButtonVariant = 'contained' | 'outlined' | 'text';
-export type ButtonColors =
-    | 'primary'
-    | 'primary-contrast'
-    | 'secondary'
-    | 'warning'
-    | 'error';
+export type ButtonColors = 'primary' | 'primary-contrast' | 'secondary' | 'warning' | 'error';
 export type ButtonSize = 'small' | 'medium' | 'large';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -54,7 +49,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * for as='a'
      */
-    target?: HTMLAttributeAnchorTarget
+    target?: HTMLAttributeAnchorTarget;
 
     /**
      * for as={Link} (react-route-link)
@@ -62,15 +57,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     to?: string;
 }
 
-type ButtonPropsWithDefaultsValue = Pick<
-    ButtonProps,
-    'type' | 'variant' | 'color' | 'size' | 'disabled'
->;
+type ButtonPropsWithDefaultsValue = Pick<ButtonProps, 'type' | 'variant' | 'color' | 'size' | 'disabled'>;
 
-export type StyledButtonProps = Omit<
-    ButtonProps,
-    keyof ButtonPropsWithDefaultsValue
-> &
+export type StyledButtonProps = Omit<ButtonProps, keyof ButtonPropsWithDefaultsValue> &
     Required<ButtonPropsWithDefaultsValue>;
 
 export interface StyledButtonIconProps {

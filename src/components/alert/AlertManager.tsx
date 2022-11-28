@@ -17,27 +17,30 @@ const AlertManager: FC<PropsWithChildren<AlertManagerProps>> = (props) => {
         };
     }, []);
 
-    const add = useCallback((config: AlertConfig) => {
-        const alertConfig: AlertFullConfig = {
-            color: 'info',
-            timer: defaultTimer,
-            id: generateId(),
-            showClose: defaultShowClose,
-            ...config,
-        };
+    const add = useCallback(
+        (config: AlertConfig) => {
+            const alertConfig: AlertFullConfig = {
+                color: 'info',
+                timer: defaultTimer,
+                id: generateId(),
+                showClose: defaultShowClose,
+                ...config,
+            };
 
-        setAlerts((currentAlerts) => [...currentAlerts, alertConfig]);
+            setAlerts((currentAlerts) => [...currentAlerts, alertConfig]);
 
-        const timeoutId = setTimeout(() => {
-            close(alertConfig.id);
-        }, alertConfig.timer);
+            const timeoutId = setTimeout(() => {
+                close(alertConfig.id);
+            }, alertConfig.timer);
 
-        timerIdsRef.current.push(timeoutId);
-    }, [defaultTimer]);
+            timerIdsRef.current.push(timeoutId);
+        },
+        [defaultTimer]
+    );
 
     const close = useCallback((id: string) => {
         setAlerts((currentAlerts) => {
-            const index = currentAlerts.findIndex(item => item.id === id);
+            const index = currentAlerts.findIndex((item) => item.id === id);
             if (index === -1) {
                 return currentAlerts;
             }
@@ -64,11 +67,7 @@ const AlertManager: FC<PropsWithChildren<AlertManagerProps>> = (props) => {
             <StyledAlertContainer positions={positions}>
                 <AnimatePresence>
                     {alerts.map((props) => (
-                        <Alert key={props.id}
-                               align={positions[1]}
-                               {...props}
-                               onClose={() => close(props.id)}
-                        />
+                        <Alert key={props.id} align={positions[1]} {...props} onClose={() => close(props.id)} />
                     ))}
                 </AnimatePresence>
             </StyledAlertContainer>

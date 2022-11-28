@@ -4,8 +4,8 @@ export const animationVariantsModalOverlay = {
     },
     visible: {
         opacity: 1,
-    }
-}
+    },
+};
 
 export const animationVariantsModalContent = {
     hidden: {
@@ -15,10 +15,10 @@ export const animationVariantsModalContent = {
     visible: {
         ...animationVariantsModalOverlay.visible,
         y: 0,
-    }
+    },
 };
 
 export const animationTransition = {
     duration: 0.3,
-    ease: "easeInOut",
+    ease: 'easeInOut',
 };

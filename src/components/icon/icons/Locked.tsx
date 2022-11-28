@@ -16,10 +16,7 @@ const SvgLocked: FC<SVGAttributes<SVGElement>> = (props) => (
             d="M4.667 10H18v9H2v-9h2.667ZM10 12.571c-.736 0-1.333.576-1.333 1.286v1.286c0 .71.597 1.286 1.333 1.286s1.333-.576 1.333-1.286v-1.286c0-.71-.597-1.286-1.333-1.286Z"
             fill="inherit"
         />
-        <path
-            d="M11 3H9a2 2 0 0 0-2 2v9H5V5a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v9h-2V5a2 2 0 0 0-2-2Z"
-            fill="inherit"
-        />
+        <path d="M11 3H9a2 2 0 0 0-2 2v9H5V5a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v9h-2V5a2 2 0 0 0-2-2Z" fill="inherit" />
     </svg>
 );
 export default SvgLocked;

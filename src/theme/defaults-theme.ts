@@ -1,9 +1,9 @@
 import { Palette, CommonTypography, Shape, Shadows, TypographyTheme } from '../types/theme';
-import { BreakpointValues } from "../types/theme/breakpoints";
-import { defaultComponents } from "./default-theme/typography/default-components";
-import { defaultHeaders } from "./default-theme/typography/default-headers";
-import { defaultParagraphs } from "./default-theme/typography/default-paragraphs";
-import { defaultSubHeaders } from "./default-theme/typography/default-sub-headers";
+import { BreakpointValues } from '../types/theme/breakpoints';
+import { defaultComponents } from './default-theme/typography/default-components';
+import { defaultHeaders } from './default-theme/typography/default-headers';
+import { defaultParagraphs } from './default-theme/typography/default-paragraphs';
+import { defaultSubHeaders } from './default-theme/typography/default-sub-headers';
 
 export const defaultPalette: Palette = {
     // Main
@@ -21,7 +21,7 @@ export const defaultPalette: Palette = {
     text: {
         primary: '#1d1d1b',
         secondary: '#666666',
-        disabled: '#999999'
+        disabled: '#999999',
     },
     gray: {
         100: '#444444',
@@ -42,13 +42,13 @@ export const defaultCommonTypography: CommonTypography = {
     fontSize: 14,
     htmlFontSize: 16,
     opacity: 0.72,
-}
+};
 
 export const defaultTypography: TypographyTheme = {
-   ...defaultHeaders,
-   ...defaultSubHeaders,
-   ...defaultParagraphs,
-   ...defaultComponents,
+    ...defaultHeaders,
+    ...defaultSubHeaders,
+    ...defaultParagraphs,
+    ...defaultComponents,
 };
 
 export const defaultShape: Shape = {
@@ -84,5 +84,4 @@ export const defaultBreakpointsValue: BreakpointValues = {
     xs: 640,
     sm: 1024,
     md: 1200,
-}
-
+};

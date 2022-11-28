@@ -18,11 +18,7 @@ const SvgWindows: FC<SVGAttributes<SVGElement>> = (props) => (
         </g>
         <defs>
             <clipPath id="Windows_svg__a">
-                <path
-                    fill="#fff"
-                    transform="translate(2 3)"
-                    d="M0 0h16v16H0z"
-                />
+                <path fill="#fff" transform="translate(2 3)" d="M0 0h16v16H0z" />
             </clipPath>
         </defs>
     </svg>

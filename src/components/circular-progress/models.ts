@@ -3,8 +3,8 @@ export type CircularProgressSize = 'small' | 'medium' | 'large';
 
 export interface CircularProgressProps {
     /**
-    * What spinning ring color to use
-    */
+     * What spinning ring color to use
+     */
     color?: CircularProgressColors;
 
     /**
@@ -13,18 +13,12 @@ export interface CircularProgressProps {
     size?: CircularProgressSize;
 
     /**
-    * Progress value for ring and label
-    */
+     * Progress value for ring and label
+     */
     progressValue?: number;
 }
 
-type CircularProgressWithDefaultsValue = Pick<
-    CircularProgressProps,
-    'size' | 'color'
->;
+type CircularProgressWithDefaultsValue = Pick<CircularProgressProps, 'size' | 'color'>;
 
-export type StyledCircularProgressProps = Omit<
-    CircularProgressProps,
-    keyof CircularProgressWithDefaultsValue
-    > &
+export type StyledCircularProgressProps = Omit<CircularProgressProps, keyof CircularProgressWithDefaultsValue> &
     Required<CircularProgressWithDefaultsValue>;

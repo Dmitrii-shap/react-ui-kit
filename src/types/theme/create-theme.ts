@@ -5,12 +5,10 @@ import { Theme } from './Theme';
  * @desc Internal theme properties that have been expanded in DefaultTheme
  * */
 type ExtInternalTheme = {
-    [P in keyof Theme as keyof ExcludeParent<
+    [P in keyof Theme as keyof ExcludeParent<Theme[P], DefaultTheme[P]> extends [] ? never : P]: ExcludeParent<
         Theme[P],
         DefaultTheme[P]
-    > extends []
-        ? never
-        : P]: ExcludeParent<Theme[P], DefaultTheme[P]>;
+    >;
 };
 
 /**

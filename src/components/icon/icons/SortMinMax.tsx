@@ -10,18 +10,8 @@ const SvgSortMinMax: FC<SVGAttributes<SVGElement>> = (props) => (
         role="img"
         {...props}
     >
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M10 16H2v-2h8v2Zm4-5H2V9h12v2Z"
-            fill="inherit"
-        />
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M2 4h8v2H2V4Zm0 5h12v2H2V9Zm16 7v-2H2v2h16Z"
-            fill="inherit"
-        />
+        <path fillRule="evenodd" clipRule="evenodd" d="M10 16H2v-2h8v2Zm4-5H2V9h12v2Z" fill="inherit" />
+        <path fillRule="evenodd" clipRule="evenodd" d="M2 4h8v2H2V4Zm0 5h12v2H2V9Zm16 7v-2H2v2h16Z" fill="inherit" />
     </svg>
 );
 export default SvgSortMinMax;

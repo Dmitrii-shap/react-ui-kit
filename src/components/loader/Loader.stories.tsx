@@ -9,7 +9,7 @@ export default {
 
 const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />;
 
-export const Example  = Template.bind({});
+export const Example = Template.bind({});
 Example.args = {
     size: 'medium',
     variant: 'static',

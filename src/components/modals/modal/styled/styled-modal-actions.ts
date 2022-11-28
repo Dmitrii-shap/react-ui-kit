@@ -7,16 +7,16 @@ import { defaultPaddingRatio, defaultPaddingRatioXs } from '../constants/default
 const { spacing } = ThemeSelector;
 
 export const StyledModalActions = styled.div<StyledModalActionsProps>`
-  padding: ${spacing(defaultPaddingRatio)}px;
-  display: flex;
-  align-items: center;
-  justify-content: ${({align}) => align};
+    padding: ${spacing(defaultPaddingRatio)}px;
+    display: flex;
+    align-items: center;
+    justify-content: ${({ align }) => align};
 
-  ${({theme}) => theme.breakpoints.down('xs')} {
-    padding: ${spacing(defaultPaddingRatioXs)}px;
-  }
-  
-  ${StyledButton} + ${StyledButton} {
-    margin-left: ${spacing(2)}px;
-  }
-`
+    ${({ theme }) => theme.breakpoints.down('xs')} {
+        padding: ${spacing(defaultPaddingRatioXs)}px;
+    }
+
+    ${StyledButton} + ${StyledButton} {
+        margin-left: ${spacing(2)}px;
+    }
+`;

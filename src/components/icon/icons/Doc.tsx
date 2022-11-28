@@ -10,16 +10,8 @@ const SvgDoc: FC<SVGAttributes<SVGElement>> = (props) => (
         role="img"
         {...props}
     >
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M16.5 3.5h-13v13h13v-13ZM2 2v16h16V2H2Z"
-            fill="inherit"
-        />
-        <path
-            fill="inherit"
-            d="M5 6.25h10v1.5H5zM5 9.25h10v1.5H5zM5 12.25h10v1.5H5z"
-        />
+        <path fillRule="evenodd" clipRule="evenodd" d="M16.5 3.5h-13v13h13v-13ZM2 2v16h16V2H2Z" fill="inherit" />
+        <path fill="inherit" d="M5 6.25h10v1.5H5zM5 9.25h10v1.5H5zM5 12.25h10v1.5H5z" />
     </svg>
 );
 export default SvgDoc;

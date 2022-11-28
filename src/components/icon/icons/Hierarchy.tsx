@@ -10,11 +10,7 @@ const SvgHierarchy: FC<SVGAttributes<SVGElement>> = (props) => (
         role="img"
         {...props}
     >
-        <path
-            d="M17.25 11.25h-7.5v-2.5h7.5v2.5Zm0 3.5v2.5h-7.5v-2.5h7.5Z"
-            stroke="inherit"
-            strokeWidth={1.5}
-        />
+        <path d="M17.25 11.25h-7.5v-2.5h7.5v2.5Zm0 3.5v2.5h-7.5v-2.5h7.5Z" stroke="inherit" strokeWidth={1.5} />
         <path
             fillRule="evenodd"
             clipRule="evenodd"

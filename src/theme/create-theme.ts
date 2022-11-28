@@ -3,7 +3,7 @@ import { createPalette, createTypography, createShape, createCommonTypography, c
 import { createShadows } from './creators/create-shadows';
 
 export const createTheme: CreateTheme = (options) => {
-    const { palette, commonTypography, typography, shape, shadow, breakpoints,  ...rest } = options || {};
+    const { palette, commonTypography, typography, shape, shadow, breakpoints, ...rest } = options || {};
 
     return {
         palette: createPalette(palette),

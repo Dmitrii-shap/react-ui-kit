@@ -10,18 +10,8 @@ const SvgFlag: FC<SVGAttributes<SVGElement>> = (props) => (
         role="img"
         {...props}
     >
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M10.5 4.5h-5v5h5v-5ZM4 3v8h8V3H4Z"
-            fill="inherit"
-        />
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M3 18V2h2v16H3Z"
-            fill="inherit"
-        />
+        <path fillRule="evenodd" clipRule="evenodd" d="M10.5 4.5h-5v5h5v-5ZM4 3v8h8V3H4Z" fill="inherit" />
+        <path fillRule="evenodd" clipRule="evenodd" d="M3 18V2h2v16H3Z" fill="inherit" />
         <path
             fillRule="evenodd"
             clipRule="evenodd"

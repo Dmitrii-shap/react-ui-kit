@@ -1,7 +1,6 @@
 import React, { FC, PropsWithChildren } from 'react';
 import { ButtonProps } from './models';
-import { StyledButton } from './styles';
-import { StyledButtonIcon } from './styles/styled-icon';
+import { StyledButton, StyledButtonIcon } from './styles';
 
 /**
  * Button UI component
@@ -15,17 +14,10 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
     leftIcon,
     rightIcon,
     children,
-    iconSize= 2,
+    iconSize = 2,
     ...rest
 }) => (
-    <StyledButton
-        type={type}
-        size={size}
-        variant={variant}
-        color={color}
-        disabled={disabled}
-        {...rest}
-    >
+    <StyledButton type={type} size={size} variant={variant} color={color} disabled={disabled} {...rest}>
         <>
             {leftIcon && <StyledButtonIcon side="left" size={iconSize} name={leftIcon} />}
             <span>{children}</span>
@@ -33,4 +25,3 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
         </>
     </StyledButton>
 );
-

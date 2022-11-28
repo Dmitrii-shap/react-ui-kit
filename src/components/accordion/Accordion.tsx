@@ -20,9 +20,7 @@ const AccordionItem: FC<AccordionItemProps> = ({ title, children, isOpen, onTogg
             </StyledAccordionItemHeader>
 
             <StyledAccordionItemBody style={{ maxHeight: !isOpen ? 0 : contentRef.current?.offsetHeight }}>
-                <StyledAccordionItemBodyContent ref={contentRef}>
-                    {children}
-                </StyledAccordionItemBodyContent>
+                <StyledAccordionItemBodyContent ref={contentRef}>{children}</StyledAccordionItemBodyContent>
             </StyledAccordionItemBody>
         </StyledAccordionItem>
     );

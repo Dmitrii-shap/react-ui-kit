@@ -14,13 +14,12 @@ export const Static = Template.bind({});
 Static.args = {
     color: 'primary',
     progressValue: undefined,
-    size: 'medium'
+    size: 'medium',
 };
 
 export const Dynamic = Template.bind({});
 Dynamic.args = {
     color: 'primary',
     progressValue: 50,
-    size: 'large'
+    size: 'large',
 };
-

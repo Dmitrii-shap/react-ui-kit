@@ -3,11 +3,7 @@ import { ButtonSize, ButtonVariant, StyledButtonProps } from '../models';
 import { variantContainedMixin } from './mixins/variant-contained.mixin';
 import { variantTextMixin } from './mixins/variant-text.mixin';
 import { variantOutlinedMixin } from './mixins/variant-outlined.mixin';
-import {
-    sizeLargeMixin,
-    sizeMediumMixin,
-    sizeSmallMixin,
-} from './mixins/sizes.mixin';
+import { sizeLargeMixin, sizeMediumMixin, sizeSmallMixin } from './mixins/sizes.mixin';
 import { activeStateMixin, disabledStateMixin } from './mixins/states.mixin';
 
 export const StyledButton = styled.button<StyledButtonProps>`

@@ -1,4 +1,4 @@
-import { Breakpoints } from "./breakpoints";
+import { Breakpoints } from './breakpoints';
 import { Palette } from './palette';
 import { Shadows } from './shadow';
 import { Shape } from './shape';

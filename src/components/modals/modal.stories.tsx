@@ -15,7 +15,7 @@ export default {
     controls: { hideNoControlsWarning: true },
 } as ComponentMeta<typeof Modal>;
 
-type OverrideModalType = ModalProps & ModalHeaderProps & ModalActionsProps & {content: string};
+type OverrideModalType = ModalProps & ModalHeaderProps & ModalActionsProps & { content: string };
 
 const Template: ComponentStory<typeof OverrideModal> = (args) => <OverrideModal {...args} />;
 export const MainModal = Template.bind({});
@@ -27,7 +27,8 @@ MainModal.args = {
     defaultOpened: false,
     title: 'Header title',
     align: 'center',
-    content: 'bibendum enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus'
+    content:
+        'bibendum enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus',
 };
 MainModal.argTypes = {
     defaultOpened: {
@@ -85,13 +86,24 @@ const OverrideModal: FC<OverrideModalType> = (props) => {
         <div>
             <Button onClick={() => modalRef.current?.open()}>Open base modal</Button>
 
-            <Modal ref={modalRef} size={size} outsideClose={outsideClose} showClose={showClose} verticalPosition={verticalPosition}>
+            <Modal
+                ref={modalRef}
+                size={size}
+                outsideClose={outsideClose}
+                showClose={showClose}
+                verticalPosition={verticalPosition}
+            >
                 <ModalHeader title={title} />
                 <ModalBody>
-                    {content.split(/\n/).map((paragraph, index) => (<p key={index}>{paragraph}</p>))}
+                    {content.split(/\n/).map((paragraph, index) => (
+                        <p key={index}>{paragraph}</p>
+                    ))}
                 </ModalBody>
                 <ModalActions align={align}>
-                    <Button onClick={() => modalRef.current?.close()} variant='outlined'> Close </Button>
+                    <Button onClick={() => modalRef.current?.close()} variant="outlined">
+                        {' '}
+                        Close{' '}
+                    </Button>
                     <Button onClick={() => alert('action')}> Action </Button>
                 </ModalActions>
             </Modal>

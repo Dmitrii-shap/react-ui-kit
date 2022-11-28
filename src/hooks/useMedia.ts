@@ -18,8 +18,7 @@ interface UseMediaOptions<T> {
  * });
  * */
 export const useMedia = <T>({ queries, defaultValue }: UseMediaOptions<T>): T => {
-    const mediaQueryLists = Object.keys(queries).map((q) =>
-      window.matchMedia(q.replace(/^@media( ?)/m, '')));
+    const mediaQueryLists = Object.keys(queries).map((q) => window.matchMedia(q.replace(/^@media( ?)/m, '')));
 
     const getValue = () => {
         const index = mediaQueryLists.findIndex(({ matches }) => matches);

@@ -11,7 +11,6 @@ export const variantOutlinedMixin = css<StyledButtonProps>`
     box-shadow: none;
 
     &:hover {
-        background-color: ${({ theme, color }) =>
-            chroma(theme.palette[colorMap[color]]).alpha(0.1).hex()};
+        background-color: ${({ theme, color }) => chroma(theme.palette[colorMap[color]]).alpha(0.1).hex()};
     }
 `;

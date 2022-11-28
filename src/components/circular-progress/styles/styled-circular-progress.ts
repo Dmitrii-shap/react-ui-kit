@@ -5,13 +5,13 @@ import { variantDynamicMixin } from './mixins/variant-dynamic.mixin';
 import { colorMixin } from './mixins/color.mixin';
 
 export const StyledCircularProgress = styled.div<StyledCircularProgressProps>`
-  svg {
-    display: block;
-    transform: rotate(-90deg);
-  }
-  
-  ${({ progressValue }) => getVariantMixin(progressValue)}
-  ${colorMixin}
+    svg {
+        display: block;
+        transform: rotate(-90deg);
+    }
+
+    ${({ progressValue }) => getVariantMixin(progressValue)}
+    ${colorMixin}
 `;
 
 const getVariantMixin = (progressValue?: number) =>

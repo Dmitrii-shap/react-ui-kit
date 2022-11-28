@@ -10,12 +10,7 @@ const SvgMinus: FC<SVGAttributes<SVGElement>> = (props) => (
         role="img"
         {...props}
     >
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M17 11.25H3v-2.5h14v2.5Z"
-            fill="inherit"
-        />
+        <path fillRule="evenodd" clipRule="evenodd" d="M17 11.25H3v-2.5h14v2.5Z" fill="inherit" />
     </svg>
 );
 export default SvgMinus;
