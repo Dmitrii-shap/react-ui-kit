@@ -1,6 +1,6 @@
 import { TypographyTypes } from "../../../types/theme";
 
-const map: Optional<Record<TypographyTypes, keyof HTMLElementTagNameMap>, TypographyTypes> = {
+const map: Partial<Record<TypographyTypes, keyof HTMLElementTagNameMap>> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
