@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ComponentType, HTMLAttributeAnchorTarget } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 import { IconNames, IconSize } from '../icon/models';
 
 export type ButtonVariant = 'contained' | 'outlined' | 'text';
@@ -38,23 +38,24 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
     /**
      * Associate components
+     * TODO FIX IT
      */
-    as?: ComponentType<any> | keyof JSX.IntrinsicElements;
+    // as?: ComponentType<never> | keyof JSX.IntrinsicElements;
 
-    /**
-     * for as='a'
-     */
-    href?: string;
-
-    /**
-     * for as='a'
-     */
-    target?: HTMLAttributeAnchorTarget;
-
-    /**
-     * for as={Link} (react-route-link)
-     */
-    to?: string;
+    // /**
+    //  * for as='a'
+    //  */
+    // href?: string;
+    //
+    // /**
+    //  * for as='a'
+    //  */
+    // target?: HTMLAttributeAnchorTarget;
+    //
+    // /**
+    //  * for as={Link} (react-route-link)
+    //  */
+    // to?: string;
 }
 
 type ButtonPropsWithDefaultsValue = Pick<ButtonProps, 'type' | 'variant' | 'color' | 'size' | 'disabled'>;

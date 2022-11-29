@@ -7,4 +7,4 @@ export const colorMap: Record<ButtonColors, PaletteKeys> = {
     error: 'error',
     secondary: 'white',
     warning: 'warning',
-}
+};

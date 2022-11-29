@@ -67,7 +67,9 @@ const AlertManager: FC<PropsWithChildren<AlertManagerProps>> = (props) => {
             <StyledAlertContainer positions={positions}>
                 <AnimatePresence>
                     {alerts.map((props) => (
-                        <Alert key={props.id} align={positions[1]} {...props} onClose={() => close(props.id)} />
+                        <Alert key={props.id} align={positions[1]} {...props} onClose={() => close(props.id)}>
+                            {props.children}
+                        </Alert>
                     ))}
                 </AnimatePresence>
             </StyledAlertContainer>

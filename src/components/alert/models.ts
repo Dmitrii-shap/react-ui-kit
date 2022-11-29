@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { Optional } from '../../types/utilityTypes';
 
 type VerticalPosition = 'top' | 'bottom';
 type HorizontalPosition = 'left' | 'right';

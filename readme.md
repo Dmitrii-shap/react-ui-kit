@@ -1,17 +1,20 @@
 # Components UI-Kit
 
 ### TODO LIST
-   - ~~checkbox~~
-   - radio
-   - switch
-   - table
-   - tooltip
-   - select
-   ---
-   - ~~add ESLint~~
-   - add Tests
-   - add readme description
-   - website with storybook
+
+-   ~~checkbox~~
+-   radio
+-   switch
+-   table
+-   tooltip
+-   select
+
+---
+
+-   ~~add ESLint~~
+-   add Tests
+-   add readme description
+-   website with storybook
 
 ## Типизирование темы
 

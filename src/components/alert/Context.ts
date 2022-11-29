@@ -1,4 +1,4 @@
-import { Context, createContext, MutableRefObject } from 'react';
+import { createContext, MutableRefObject } from 'react';
 import { AlertConfig } from './models';
 
 type AlertState = MutableRefObject<{
@@ -6,7 +6,6 @@ type AlertState = MutableRefObject<{
     close: (id: string) => void;
 }>;
 
-// @ts-ignore  TODO
-const AlertContext: Context<AlertState> = createContext(null);
+const AlertContext = createContext<AlertState>({} as AlertState);
 
 export default AlertContext;
