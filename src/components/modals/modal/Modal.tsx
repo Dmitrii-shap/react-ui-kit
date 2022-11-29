@@ -18,6 +18,7 @@ import {
 
 let bodyOverflowHiddenModalCount = 0;
 
+// eslint-disable-next-line react/display-name
 export const Modal = forwardRef<ModalElement, ModalProps>(
     (
         {
@@ -27,7 +28,6 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
             defaultOpened = false,
             showClose = true,
             outsideClose = false,
-            ...props
         },
         ref
     ) => {
