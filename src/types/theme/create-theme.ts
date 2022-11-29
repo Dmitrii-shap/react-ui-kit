@@ -1,5 +1,6 @@
 import { DefaultTheme } from 'styled-components';
 import { Theme } from './Theme';
+import { ExcludeParent, RecursiveOptional, RecursiveReadonly } from '../utilityTypes';
 
 /**
  * @desc Internal theme properties that have been expanded in DefaultTheme

@@ -2,6 +2,7 @@ import defaultsDeep from 'lodash.defaultsdeep';
 import { DefaultTheme } from 'styled-components';
 import { Breakpoints, BreakpointValues } from '../../types/theme/breakpoints';
 import { defaultBreakpointsValue } from '../defaults-theme';
+import { RecursiveOptional } from '../../types/utilityTypes';
 
 export const createBreakpoints = (
     overrideBreakpoints?: RecursiveOptional<DefaultTheme['breakpoints']>

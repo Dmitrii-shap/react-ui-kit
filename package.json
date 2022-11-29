@@ -8,7 +8,7 @@
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
         "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
-        "format": "prettier --write './**/*.{ts,tsx,md,json}' --config ./.prettierrc",
+        "format": "prettier --write ./**/*.{ts,tsx,md,json} --config ./.prettierrc",
         "gen:icons": "svgr --out-dir src/components/icon/icons --icon -- src/assets/icons"
     },
     "devDependencies": {
