@@ -1,5 +1,5 @@
 import { DefaultTheme } from 'styled-components';
-import { Theme } from './Theme';
+import { Theme } from './theme';
 import { ExcludeParent, RecursiveOptional, RecursiveReadonly } from '../utilityTypes';
 
 /**
