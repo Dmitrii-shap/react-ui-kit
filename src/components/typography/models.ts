@@ -7,7 +7,7 @@ export interface TypographyProps {
     isInline?: boolean;
     color?: TypographyColor;
     align?: Property.TextAlign;
-    fontStyle?: 'italic' | 'normal' | 'oblique';
+    fontStyle?: 'italic' | 'normal';
     textTransform?: Property.TextTransform;
     isOpacity?: boolean;
 }

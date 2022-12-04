@@ -12,6 +12,7 @@
 ---
 
 -   ~~add ESLint~~
+-   ~~storybook fonts~~
 -   add Tests
 -   add readme description
 -   website with storybook

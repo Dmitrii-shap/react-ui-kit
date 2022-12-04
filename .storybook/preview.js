@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { createTheme } from '../src';
+import { GlobalBody } from '../src/styled/global-body';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -15,6 +16,7 @@ export const parameters = {
 export const decorators = [
     (Story) => (
         <ThemeProvider theme={createTheme()}>
+            <GlobalBody />
             <Story />
         </ThemeProvider>
     ),
