@@ -18,8 +18,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
 
     border-radius: ${({ theme }) => theme.shape.borderRadius.button}px;
     font-family: ${({ theme }) => theme.commonTypography.fontFamily};
-    font-size: ${({ theme }) => theme.typography.button.fontWeight};
-    font-weight: ${({ theme }) => theme.typography.button.fontSize}px;
+    font-size: ${({ theme }) => theme.typography.button.fontSize}px;
+    font-weight: ${({ theme }) => theme.typography.button.fontWeight};
 
     ${({ disabled }) => (disabled ? disabledStateMixin : activeStateMixin)};
     ${({ variant }) => getVariantMixin(variant)}
