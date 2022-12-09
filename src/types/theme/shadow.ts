@@ -5,10 +5,6 @@ interface Shadow {
 
 export interface Shadows {
     card: Shadow;
-    button: Shadow;
-    buttonDark: Shadow;
     gray: Shadow;
     error: string;
-    grayLight: string;
-    menu: string;
 }

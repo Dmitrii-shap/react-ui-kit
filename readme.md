@@ -1,21 +1,6 @@
 # Components UI-Kit
 
-### TODO LIST
-
--   ~~checkbox~~
--   radio
--   switch
--   table
--   tooltip
--   select
-
----
-
--   ~~add ESLint~~
--   ~~storybook fonts~~
--   add Tests
--   add readme description
--   website with storybook
+### [Ссылка на storybook](https://dimazzz.github.io/react-ui-kit/)
 
 ## Типизирование темы
 
@@ -25,7 +10,12 @@
 
 ```typescript
 interface Theme {
-    //TODO Заполнить
+    palette: Palette,
+    commonTypography: CommonTypography,
+    typography: TypographyTheme,
+    shape: Shape,
+    shadow: Shadows,
+    breakpoints: Breakpoints,
 }
 ```
 
@@ -89,3 +79,20 @@ const AppThemeProvider: FC<Props> = ({ children }) => {
 
 export default AppThemeProvider;
 ```
+
+### TODO LIST
+
+-   ~~checkbox~~
+-   radio
+-   switch
+-   table
+-   tooltip
+-   select
+
+---
+
+-   ~~add ESLint~~
+-   ~~storybook fonts~~
+-   add Tests
+-   add readme description
+-   ~~website with storybook~~

@@ -63,21 +63,11 @@ export const defaultShadows: Shadows = {
         main: '0px 8px 24px rgba(38, 202, 153, 0.24)',
         hover: '0px 8px 32px rgba(52, 208, 184, 0.48)',
     },
-    button: {
-        main: '-5px 5px 18px rgba(35, 209, 174, 0.3)',
-        hover: '0px 12px 40px rgba(21, 190, 164, 0.48)',
-    },
-    buttonDark: {
-        main: '0px 8px 32px rgba(0, 89, 75, 0.48)',
-        hover: '0px 12px 40px rgba(0, 109, 92, 0.4)',
-    },
     gray: {
         main: '0px 4px 20px rgba(92, 133, 150, 0.24)',
         hover: '0px 4px 20px rgba(92, 133, 150, 0.35)',
     },
     error: '0px 8px 24px rgba(252, 214, 199, 0.64)',
-    grayLight: '0px 2px 12px rgba(92, 133, 150, 0.12)',
-    menu: '0px 1px 4px rgba(92, 133, 150, 0.24)',
 };
 
 export const defaultBreakpointsValue: BreakpointValues = {
