@@ -1,11 +1,11 @@
-import React, { FC, PropsWithChildren } from 'react';
-import { ButtonProps } from './models';
+import React, { ComponentPropsWithoutRef, PropsWithChildren, ElementType } from 'react';
+import { ButtonPropsWithAs } from './models';
 import { StyledButton, StyledButtonIcon } from './styles';
 
 /**
  * Button UI component
  */
-export const Button: FC<PropsWithChildren<ButtonProps>> = ({
+export const Button = <T extends ElementType>({
     type = 'button',
     variant = 'contained',
     color = 'primary',
@@ -16,7 +16,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
     children,
     iconSize = 2,
     ...rest
-}) => (
+}: PropsWithChildren<ButtonPropsWithAs<T>> & Omit<ComponentPropsWithoutRef<T>, keyof ButtonPropsWithAs<T>>) => (
     <StyledButton type={type} size={size} variant={variant} color={color} disabled={disabled} {...rest}>
         <>
             {leftIcon && <StyledButtonIcon side="left" size={iconSize} name={leftIcon} />}

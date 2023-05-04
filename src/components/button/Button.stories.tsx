@@ -46,3 +46,12 @@ Text.args = {
     variant: 'text',
     children: 'Text button',
 };
+
+export const AsLink = Template.bind({});
+Text.args = {
+    as: 'a',
+    variant: 'text',
+    children: 'this is link',
+    href: 'https://github.com/Dimazzz/react-ui-kit',
+    target: '_black',
+};

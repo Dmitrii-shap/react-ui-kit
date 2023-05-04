@@ -35,28 +35,14 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      * icons size
      */
     iconSize?: IconSize;
+}
 
+export type ButtonPropsWithAs<T extends React.ElementType> = ButtonProps & {
     /**
      * Associate components
-     * TODO FIX IT
      */
-    // as?: ComponentType<never> | keyof JSX.IntrinsicElements;
-
-    // /**
-    //  * for as='a'
-    //  */
-    // href?: string;
-    //
-    // /**
-    //  * for as='a'
-    //  */
-    // target?: HTMLAttributeAnchorTarget;
-    //
-    // /**
-    //  * for as={Link} (react-route-link)
-    //  */
-    // to?: string;
-}
+    as?: T;
+};
 
 type ButtonPropsWithDefaultsValue = Pick<ButtonProps, 'type' | 'variant' | 'color' | 'size' | 'disabled'>;
 
