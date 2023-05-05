@@ -48,7 +48,7 @@ Text.args = {
 };
 
 export const AsLink = Template.bind({});
-Text.args = {
+AsLink.args = {
     as: 'a',
     variant: 'text',
     children: 'this is link',
