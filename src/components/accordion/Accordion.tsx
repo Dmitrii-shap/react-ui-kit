@@ -9,11 +9,11 @@ import {
     StyledAccordionItemHeaderIcon,
 } from './styled';
 
-const AccordionItem: FC<AccordionItemProps> = ({ title, children, isOpen, onToggle, isOdd }) => {
+const AccordionItem: FC<AccordionItemProps> = ({ title, children, isOpen, onToggle }) => {
     const contentRef = useRef<HTMLDivElement>(null);
 
     return (
-        <StyledAccordionItem isOpen={isOpen} isOdd={isOdd}>
+        <StyledAccordionItem isOpen={isOpen}>
             <StyledAccordionItemHeader onClick={onToggle}>
                 <StyledAccordionItemTitle>{title}</StyledAccordionItemTitle>
                 <StyledAccordionItemHeaderIcon fill="black" height={12} width={12} />
@@ -27,17 +27,24 @@ const AccordionItem: FC<AccordionItemProps> = ({ title, children, isOpen, onTogg
 };
 
 const Accordion: FC<AccordionProps> = ({ items, multiple }) => {
-    const [activeItems, setActiveItems] = useState<number[]>([]);
+    const [activeItems, setActiveItems] = useState<Set<number>>(new Set());
 
     const toggleElement = (num: number) => {
-        const index = activeItems.indexOf(num);
-
-        if (~index) {
-            setActiveItems([...activeItems.slice(0, index), ...activeItems.slice(index + 1)]);
+        if (activeItems.has(num)) {
+            const newActiveItems = new Set(activeItems.values());
+            newActiveItems.delete(num);
+            setActiveItems(newActiveItems);
             return;
         }
 
-        setActiveItems(multiple ? [...activeItems, num] : [num]);
+        if (multiple) {
+            const newActiveItems = new Set(activeItems.values());
+            newActiveItems.add(num);
+            setActiveItems(newActiveItems);
+            return;
+        }
+
+        setActiveItems(new Set([num]));
     };
 
     return (
@@ -46,8 +53,7 @@ const Accordion: FC<AccordionProps> = ({ items, multiple }) => {
                 <AccordionItem
                     key={index}
                     {...item}
-                    isOdd={!(index % 2)}
-                    isOpen={activeItems.indexOf(index) > -1}
+                    isOpen={activeItems.has(index)}
                     onToggle={() => toggleElement(index)}
                 />
             ))}

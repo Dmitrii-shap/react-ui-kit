@@ -16,5 +16,4 @@ export interface AccordionItemProps extends AccordionItem, AccordionItemStyledPr
 
 export interface AccordionItemStyledProps {
     isOpen: boolean;
-    isOdd: boolean;
 }

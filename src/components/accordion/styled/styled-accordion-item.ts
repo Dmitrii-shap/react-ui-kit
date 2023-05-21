@@ -7,5 +7,9 @@ export const StyledAccordionItem = styled.div<AccordionItemStyledProps>`
         ${({ isOpen }) => isOpen && 'transform: rotate(180deg)'};
     }
 
-    background-color: ${({ theme, isOdd }) => (isOdd ? theme.palette.gray[700] : theme.palette.white)};
+    background-color: ${({ theme }) => theme.palette.gray[700]};
+
+    &:nth-of-type(2n) {
+        background-color: ${({ theme }) => theme.palette.white};
+    }
 `;
