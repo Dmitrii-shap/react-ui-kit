@@ -1,6 +1,6 @@
 # Components UI-Kit
 
-### [Ссылка на storybook](https://dimazzz.github.io/react-ui-kit/)
+### [Ссылка на storybook](https://dmitrii-shap.github.io/react-ui-kit/)
 
 ## Типизирование темы
 

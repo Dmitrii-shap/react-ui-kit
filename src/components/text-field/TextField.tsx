@@ -1,31 +1,40 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Typography } from '../typography/Typography';
 import { TextFieldProps } from './models';
 import { StyledTextField, StyledTextFieldLabel, StyledTextFieldContainer } from './styles';
 
 export const TextField: FC<TextFieldProps> = (props) => {
-    const { type = 'text', label, error, placeholder, message, value, defaultValue, onBlur, onFocus, onChange } = props;
+    const {
+        type = 'text',
+        label,
+        error,
+        placeholder,
+        message,
+        value,
+        defaultValue,
+        onBlur,
+        onFocus,
+        onChange,
+        variant,
+        withShadow,
+    } = props;
 
-    const [focusedState, setFocused] = React.useState(false);
-    const [valueState, setValue] = React.useState<typeof value>(defaultValue || value);
+    const [focusedState, setFocused] = useState(false);
+    const [hasValue, changeHasValue] = useState(!!value || !!defaultValue);
 
     return (
         <StyledTextFieldContainer>
             {label && (
-                <StyledTextFieldLabel
-                    shrink={focusedState || !!valueState}
-                    variant={props.variant}
-                    withShadow={props.withShadow}
-                >
+                <StyledTextFieldLabel shrink={focusedState || hasValue} variant={variant} withShadow={withShadow}>
                     {label}
                 </StyledTextFieldLabel>
             )}
             <StyledTextField
                 {...props}
                 type={type}
-                placeholder={!label ? placeholder : ''}
+                placeholder={label ? '' : placeholder}
                 onChange={(e) => {
-                    setValue(e.currentTarget.value);
+                    changeHasValue(!!e.currentTarget.value);
                     onChange && onChange(e);
                 }}
                 onBlur={(e) => {
